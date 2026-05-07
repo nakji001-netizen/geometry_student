@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기하 학습 자료(학생용)</title>
+    <style>
+        /* 기본 스타일 설정 */
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            margin: 0;
+            color: #334e68;
+        }
+
+        h1 {
+            color: #102a43;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 800;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        /* 큰 카테고리 버튼 스타일 */
+        .category-btn {
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            color: #102a43;
+            border: none;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: left;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .category-btn:hover {
+            background-color: #e2e8f0;
+        }
+
+        /* 세부 링크 목록 (기본적으로 숨김) */
+        .link-list {
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-left: 5px;
+            padding-right: 5px;
+        }
+
+        /* 세부 링크 버튼 공통 스타일 */
+        .link-item {
+            display: block;
+            padding: 18px 15px;
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 1.15rem; 
+            font-weight: bold;  
+            text-align: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 5px rgba(0,0,0,0.15);
+        }
+
+        .link-item:active {
+            transform: scale(0.98);
+        }
+
+        /* 지오지브라 링크 색상 (청록색) */
+        .geo-link {
+            background-color: #0d9488; 
+        }
+        .geo-link:hover {
+            background-color: #0f766e;
+        }
+
+        /* 웹앱 링크 색상 (짙은 파란색으로 변경) */
+        .web-link {
+            background-color: #1e40af; /* 짙은 파란색 */
+        }
+        .web-link:hover {
+            background-color: #1e3a8a; /* 마우스 오버 시 더 어두운 파란색 */
+        }
+
+        /* 화살표 애니메이션 */
+        .arrow {
+            transition: transform 0.3s;
+        }
+
+        .active .arrow {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🧭 기하 학습 자료(학생용)</h1>
+
+    <div class="container">
+        
+        <button class="category-btn" onclick="toggleLinks('geogebra', this)">
+            📐 지오지브라 <span class="arrow">▼</span>
+        </button>
+        <div id="geogebra" class="link-list">
+            <a href="https://www.geogebra.org/m/wbza38s2" target="_blank" class="link-item geo-link">📖 기하 개념 열기</a>
+            <a href="https://www.notion.so/359306bcfb2980df8953f508a47c2157?source=copy_link" target="_blank" class="link-item geo-link">📝 지오지브라 활동지</a>
+        </div>
+
+        <button class="category-btn" onclick="toggleLinks('webapp', this)">
+            🌐 웹앱 <span class="arrow">▼</span>
+        </button>
+        <div id="webapp" class="link-list">
+            <a href="https://career-e8vtdjaum4husfbmy4pcj8.streamlit.app/" target="_blank" class="link-item web-link">🔍 진로 탐색기</a>
+            <a href="https://nakji001-netizen.github.io/major-explorer/" target="_blank" class="link-item web-link">🎓 진로 연계 학과 탐색기</a>
+            <a href="https://geometrycareer-iznpecjptdmtlswsb9lhao.streamlit.app/" target="_blank" class="link-item web-link">📐 기하-전공 연결고리 탐색기</a>
+        </div>
+
+    </div>
+
+    <script>
+        function toggleLinks(id, btn) {
+            const list = document.getElementById(id);
+            const isVisible = list.style.display === "flex";
+            
+            if (isVisible) {
+                list.style.display = "none";
+                btn.classList.remove("active");
+            } else {
+                list.style.display = "flex";
+                btn.classList.add("active");
+            }
+        }
+    </script>
+
+</body>
+</html>
